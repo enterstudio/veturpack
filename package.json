@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack --config build/webpack.prod.js",
     "dev": "node build/server.js",
-    "lint": "xo **/client/**/*.{vue,js} !node_modules/**"
+    "lint": "xo **/client/**/*.{vue,js} !node_modules/**",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "author": "Pine Wu <octref@gmail.com>",
   "license": "MIT",
@@ -39,14 +41,15 @@
   ],
   "dependencies": {
     "babel-runtime": "^6.26.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "prettier": "^1.7.4",
-    "prettier-eslint-cli": "^4.4.0",
+    "prettier-eslint-cli": "^8.0.0",
     "promise-polyfill": "^6.0.2",
     "vue": "2.5.3",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "vuex-router-sync": "^5.0.0"
+    "vuex-router-sync": "^5.0.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.77",
@@ -80,5 +83,6 @@
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.19.1",
     "xo": "^0.18.2"
-  }
+  },
+  "snyk": true
 }
